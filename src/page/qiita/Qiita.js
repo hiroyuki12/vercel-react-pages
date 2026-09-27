@@ -12,7 +12,7 @@ function Qiita() {
   const [tag, setTag] = useState("react")
   const [error, setError] = useState("")
 
-  // ˆê”Ô‰º‚É“ž’B‚µ‚½‚ç handleClick‚Åƒy[ƒW‚ðXV
+  // ä¸€ç•ªä¸‹ã«åˆ°é”ã—ãŸã‚‰ handleClickã§ãƒšãƒ¼ã‚¸ã‚’æ›´æ–°
   const handleScroll = lodash.throttle(() => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
@@ -21,7 +21,7 @@ function Qiita() {
       return;
     }
 
-    // ˆê”Ô‰º‚É“ž’B‚µ‚½Žž‚Ìˆ—
+    // ä¸€ç•ªä¸‹ã«åˆ°é”ã—ãŸæ™‚ã®å‡¦ç†
     //if(message !== "loading...") {
       setPage((prevCount) => prevCount + 1);
     //}
@@ -36,17 +36,17 @@ function Qiita() {
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // page‚ª•Ï‰»‚µ‚½Žž‚ÉŽÀs
+  // pageãŒå¤‰åŒ–ã—ãŸæ™‚ã«å®Ÿè¡Œ
   useEffect(() => {
     //document.title = `page = ${page}, message = ${message}`;
     handleClick();
-  }, [page]); // Only re-run the effect if count changes
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps -- Only re-run the effect if count changes
 
-  // tag‚ª•Ï‰»‚µ‚½Žž‚ÉŽÀs
+  // tagãŒå¤‰åŒ–ã—ãŸæ™‚ã«å®Ÿè¡Œ
   useEffect(() => {
     //document.title = `page = ${page}, message = ${message}`;
     handleClick();
-  }, [tag]); // Only re-run the effect if count changes
+  }, [tag]); // eslint-disable-line react-hooks/exhaustive-deps -- Only re-run the effect if count changes
 
   const tagButtonClick = (target: string) => {
     setPostsList([]);
@@ -82,7 +82,7 @@ function Qiita() {
     const posts = list.map((item, index) => {
       return (
         <li className="item" key={index}>
-          <img src={item.user.profile_image_url} width="50" height="50" loading="lazy" />
+          <img src={item.user.profile_image_url} alt="" width="50" height="50" loading="lazy" />
           <a className="QiitaApp-link" href={item.url} target="_blank" rel="noreferrer">{item.title}</a> {moment(item.created_at).fromNow()}
         </li>
       );
