@@ -9,7 +9,7 @@ function Qiita() {
   const [postsList, setPostsList] = useState([])
   const [page, setPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
-  const [tag, setTag] = useState("react")
+  const [tag, setTag] = useState("claudecode")
   const [error, setError] = useState("")
 
   // 一番下に到達したら handleClickでページを更新
@@ -97,6 +97,9 @@ function Qiita() {
         <font color="red"><b>{error}</b></font>
         <Search search={handleClick} />
         <br />
+        <button onClick={() => {tagButtonClick("claudecode")}}>ClaudeCode</button>
+        <button onClick={() => {tagButtonClick("codex")}}>Codex</button>
+        <button onClick={() => {tagButtonClick("gemini")}}>Gemini</button>
         <button onClick={() => {tagButtonClick("react")}}>react</button>
         <button onClick={() => {tagButtonClick("swift")}}>swift</button>
         <button onClick={() => {tagButtonClick("azure")}}>azure</button>
